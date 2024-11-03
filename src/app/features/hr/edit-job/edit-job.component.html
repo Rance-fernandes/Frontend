@@ -1,0 +1,43 @@
+<h2>Edit Job Details</h2>
+
+<form [formGroup]="editJobForm" (ngSubmit)="onSubmit()">
+  <mat-form-field appearance="outline" class="full-width">
+    <mat-label>Job Title</mat-label>
+    <input matInput formControlName="jobTitle" placeholder="Enter job title" />
+  </mat-form-field>
+
+  <mat-form-field appearance="outline" class="full-width">
+    <mat-label>Job Type</mat-label>
+    <input matInput formControlName="jobType" placeholder="Enter job type" />
+  </mat-form-field>
+
+  <mat-form-field appearance="outline" class="full-width">
+    <mat-label>Company</mat-label>
+    <input matInput formControlName="company" placeholder="Enter company name" />
+  </mat-form-field>
+
+  <mat-form-field appearance="outline" class="full-width">
+    <mat-label>Location</mat-label>
+    <input matInput formControlName="location" placeholder="Enter location" />
+  </mat-form-field>
+
+  <mat-form-field appearance="outline" class="full-width">
+    <mat-label>Experience Level</mat-label>
+    <input matInput formControlName="experienceLevel" placeholder="Enter experience level" />
+  </mat-form-field>
+
+  <mat-form-field appearance="outline" class="full-width">
+    <mat-label>Qualifications</mat-label>
+    <textarea matInput formControlName="qualifications" placeholder="Enter qualifications"></textarea>
+  </mat-form-field>
+
+  <mat-form-field appearance="outline" class="full-width">
+    <mat-label>Description</mat-label>
+    <textarea matInput formControlName="description" placeholder="Enter job description"></textarea>
+  </mat-form-field>
+
+  <div class="button-group">
+    <button mat-button (click)="onCancel()">Cancel</button>
+    <button mat-raised-button color="primary" type="submit" [disabled]="editJobForm.invalid">Save Changes</button>
+  </div>
+</form>

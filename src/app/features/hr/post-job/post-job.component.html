@@ -1,0 +1,26 @@
+<!-- src/app/create-job/create-job.component.html -->
+<form [formGroup]="jobForm" (ngSubmit)="onSubmit()">
+    <mat-form-field>
+      <input matInput placeholder="Job Title" formControlName="jobTitle" required />
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput placeholder="Job Type" formControlName="jobType" required />
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput placeholder="Company" formControlName="company" required />
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput placeholder="Location" formControlName="location" required />
+    </mat-form-field>
+    <mat-form-field>
+      <textarea matInput placeholder="Description" formControlName="description" required></textarea>
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput placeholder="Experience Level" formControlName="experienceLevel" required />
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput placeholder="Qualifications" formControlName="qualifications" required />
+    </mat-form-field>
+    <button mat-raised-button color="primary" type="submit">Post Job</button>
+  </form>
+  

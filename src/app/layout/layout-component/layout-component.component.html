@@ -1,0 +1,12 @@
+<div class="layout">
+  <!-- Conditionally render the header based on user role -->
+  <app-header *ngIf="!isHrUser"></app-header>
+  <app-hr-header *ngIf="isHrUser"></app-hr-header>
+
+  <!-- Main Content Area where routes will be rendered -->
+  <main class="main-content">
+    <router-outlet></router-outlet>
+  </main>
+
+  <!-- Optional Footer -->
+</div>

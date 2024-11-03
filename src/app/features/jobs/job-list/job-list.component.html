@@ -1,0 +1,63 @@
+<div class="job-search-container">
+  <!-- Search and Filters -->
+  <mat-form-field class="example-form-field">
+    <mat-label>Search</mat-label>
+    <input
+      matInput
+      type="text"
+      [(ngModel)]="searchKeyword"
+      (input)="searchJobs()"
+      placeholder="Search by job title"
+    />
+    <button matSuffix mat-icon-button aria-label="Clear">
+      <mat-icon>close</mat-icon>
+    </button>
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Job Type</mat-label>
+    <mat-select [(ngModel)]="jobTypeFilter" (selectionChange)="searchJobs()">
+      <mat-option value="">All Job Types</mat-option>
+      <mat-option value="Full-time">Full-time</mat-option>
+      <mat-option value="Part-time">Part-time</mat-option>
+      <mat-option value="Contract">Contract</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Experience Level</mat-label>
+    <mat-select [(ngModel)]="experienceFilter" (selectionChange)="searchJobs()">
+      <mat-option value="">All Experience Levels</mat-option>
+      <mat-option value="Junior">Junior</mat-option>
+      <mat-option value="Mid-level">Mid-Level</mat-option>
+      <mat-option value="Senior">Senior</mat-option>
+    </mat-select>
+  </mat-form-field>
+</div>
+
+<!-- Job Listings with Pagination -->
+<div class="job-list-container">
+  <div
+    class="job-list"
+    *ngFor="let job of filteredJobs.slice(pageIndex * pageSize, (pageIndex + 1) * pageSize)"
+    (click)="openJobDetail(job)"
+  >
+    <h3>{{ job.jobTitle }}</h3>
+    <p>Type: {{ job.jobType }}</p>
+    <p>Experience Level: {{ job.experienceLevel }}</p>
+    <p>Company: {{ job.company }}</p>
+
+    <button mat-raised-button color="primary" (click)="applyJob(job); $event.stopPropagation()">
+      Apply
+    </button>
+  </div>
+</div>
+
+<!-- Paginator -->
+<mat-paginator
+  [length]="filteredJobs.length"
+  [pageSize]="pageSize"
+  [pageSizeOptions]="[5, 10, 20]"
+  (page)="onPageChange($event)"
+>
+</mat-paginator>

@@ -1,0 +1,28 @@
+<header>
+  <mat-toolbar color="primary" class="header-toolbar">
+    <!-- Logo and Home link -->
+    <div class="logo">
+      <a [routerLink]="['/jobs']" class="logo-link">
+        <span class="material-icons">work</span>
+        <span>Opportune</span>
+      </a>
+    </div>
+
+    <!-- Navigation tabs -->
+    <div class="nav-tabs">
+      <a *ngIf="!isHrRoute" routerLink="/jobs" routerLinkActive="active" mat-button>
+        Jobs
+      </a>
+      
+      <a *ngIf="!isHrRoute" routerLink="/jobs/applied-jobs" routerLinkActive="active" mat-button>
+        My Applied Jobs
+      </a>
+    </div>
+
+    <!-- Create Job Button (conditional) -->
+    <button *ngIf="!isHrRoute" mat-raised-button color="accent" (click)="createJob()">Create Job</button>
+
+    <!-- Logout Button -->
+    <button mat-raised-button color="warn" (click)="logout()">Logout</button>
+  </mat-toolbar>
+</header>

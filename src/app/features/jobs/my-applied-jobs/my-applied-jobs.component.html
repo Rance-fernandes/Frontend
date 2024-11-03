@@ -1,0 +1,30 @@
+<div class="applied-jobs-container">
+  <h2>My Applied Jobs</h2>
+  <div *ngIf="appliedJobs.length === 0" class="no-applied-jobs">
+    <p>You have not applied for any jobs yet.</p>
+  </div>
+  <table *ngIf="appliedJobs.length > 0" class="applied-jobs-table">
+    <thead>
+      <tr>
+        <th>Job Title</th>
+        <th>Job Type</th>
+        <th>Experience Level</th>
+        <th>Company</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let job of appliedJobs">
+        <td>{{ job.jobTitle }}</td>
+        <td>{{ job.jobType }}</td>
+        <td>{{ job.experienceLevel }}</td>
+        <td>{{ job.company }}</td>
+        <td>
+          <button (click)="revokeApplication(job)" class="revoke-button">
+            Revoke Application
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
